@@ -5,12 +5,13 @@ int main(){
     char estado1, estado2;
     char codigo1[5], codigo2[5];
     char cidade1[50], cidade2[50];
-    int populacao1, populacao2;
+    unsigned long int populacao1, populacao2;
     float area1, area2;
     float densidadeP1, densidadeP2;
     float pib_percapita1, pib_percapita2;
     float pib1, pib2;
     int pontos_turisticos1, pontos_turisticos2;
+    float super_poder1, super_poder2;
     
     printf("*---------Cadastro de cartas do Super Trunfo---------*\n\n");
 
@@ -56,10 +57,14 @@ int main(){
     densidadeP2 = (float)(populacao2) / area2;
     pib_percapita1 = (float)(populacao1)/ pib1;
     pib_percapita2 = (float)(populacao2)/ pib2;
+    super_poder1 = populacao1 + area1 + pib1 + pontos_turisticos1 + pib_percapita1 + (1/densidadeP1);
+    super_poder2 = populacao2 + area2 + pib2 + pontos_turisticos2 + pib_percapita2 + (1/densidadeP2);
 
     printf("\nCarta 1:\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2fkm²\nPIB: %.2f Bilhoẽs de Reais\nNumero de pontos turisticos: %d\nDenseidade populacional: %.2f\nPib Per Capita: %.2f\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pontos_turisticos1, densidadeP1, pib_percapita1);
 
     printf("\nCarta 1:\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2fkm²\nPIB: %.2f Bilhoẽs de Reais\nNumero de pontos turisticos: %d\nDenseidade populacional: %.2f\nPib Per Capita: %.2f\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontos_turisticos2, densidadeP2, pib_percapita2);
+
+    printf("\nVencedor 1:\nPopulação: %d\nÁrea: %d\nPIB: %d\nNumero de pontos turisticos: %d\nDenseidade populacional: %d\nPib Per Capita: %d\n", (int)(populacao1 > populacao2), (int)(area1 > area2), (int)(pib1 > pib2), (int)(pontos_turisticos1 > pontos_turisticos2), (int)(densidadeP1 < densidadeP2), (int)(pib_percapita1 > pib_percapita2));
 
     return 0;
 }
